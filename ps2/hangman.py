@@ -102,7 +102,7 @@ def get_available_letters(letters_guessed):
 
 
 def get_artwork(guesses):
-    art = {
+    art_dict = {
         '6': art.zero_GUESS,
         '5': art.one_GUESS,
         '4': art.three_GUESS,
@@ -111,7 +111,7 @@ def get_artwork(guesses):
         '1': art.six_GUESS,
         '0': art.seven_GUESS
     }
-    return art[str(guesses)]
+    return art_dict[str(guesses)]
 
 
 
