@@ -63,8 +63,12 @@ def is_word_guessed(secret_word, letters_guessed):
     returns: boolean, True if all the letters of secret_word are in letters_guessed;
       False otherwise
     '''
-    # FILL IN YOUR CODE HERE AND DELETE "pass"
-    pass
+    secret_word = [i for i in secret_word]
+    secret_word_pruned = list(dict.fromkeys(secret_word))
+    if sorted(secret_word_pruned) == sorted(letters_guessed):
+        return True
+    else:
+        return False
 
 
 
@@ -94,9 +98,6 @@ def get_available_letters(letters_guessed):
     available_letters = 'a b c d e f g h i j k l m n o p q r s t u v w x y z'.split(' ')
     return [i for i in available_letters if i not in letters_guessed]
 
-
-    
-    
 
 def hangman(secret_word):
     '''
