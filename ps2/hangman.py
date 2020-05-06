@@ -99,6 +99,7 @@ def get_available_letters(letters_guessed):
     return [i for i in available_letters if i not in letters_guessed]
 
 
+
 def hangman(secret_word):
     '''
     secret_word: string, the secret word to guess.
@@ -124,8 +125,48 @@ def hangman(secret_word):
     
     Follows the other limitations detailed in the problem write-up.
     '''
-    # FILL IN YOUR CODE HERE AND DELETE "pass"
-    pass
+    letters_guessed = []
+    guesses = 6
+    word_guessed = is_word_guessed(secret_word, letters_guessed)
+
+    print("\nWelcome to Hangman! Guess the word in 6 guesses or less:\n\n")
+
+    # get_guessed_word
+    print("Guess so far: {}".format(get_guessed_word(secret_word, letters_guessed)))
+
+    # check if guesses still remain and word isn't guessed
+    while guesses != 0 and word_guessed == False:
+        print("Guesses remaining: ({})".format(str(guesses)))
+        try:
+            guess = str(input("Guess a letter: "))
+        except:
+            print("Enter only a letter!")
+
+        # validate guess
+        if not guess.isalpha():
+            print("Enter only a LETTER!")
+        elif len(guess) > 1:
+            print("Enter only ONE letter!")
+        elif guess not in get_available_letters(letters_guessed):
+            print("You already guessed that letter!")
+
+        # add input to letters_guessed
+        letters_guessed.append(guess)
+        # increment guesses
+        guesses -= 1
+
+        print("Guess so far: {}".format(get_guessed_word(secret_word, letters_guessed)))
+        print()
+
+        # check if the word has been guessed
+        word_guessed = is_word_guessed(secret_word, letters_guessed)
+        if word_guessed == True:
+            print("You win!")
+            break
+        elif guesses == 0:
+            print("Sorry, no more guesses!")
+        else:
+            continue
 
 
 
