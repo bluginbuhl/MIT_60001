@@ -83,8 +83,10 @@ def get_available_letters(letters_guessed):
     returns: string (of letters), comprised of letters that represents which letters have not
       yet been guessed.
     '''
-    # FILL IN YOUR CODE HERE AND DELETE "pass"
-    pass
+    available_letters = 'a b c d e f g h i j k l m n o p q r s t u v w x y z'.split(' ')
+    return [i for i in available_letters if i not in letters_guessed]
+
+
     
     
 
