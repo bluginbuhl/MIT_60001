@@ -14,6 +14,7 @@
 # (so be sure to read the docstrings!)
 import random
 import string
+import wrong_guess_art as art
 
 WORDLIST_FILENAME = "words.txt"
 
@@ -97,6 +98,20 @@ def get_available_letters(letters_guessed):
     '''
     available_letters = 'a b c d e f g h i j k l m n o p q r s t u v w x y z'.split(' ')
     return [i for i in available_letters if i not in letters_guessed]
+
+
+
+def get_artwork(guesses):
+    art = {
+        '6': art.zero_GUESS,
+        '5': art.one_GUESS,
+        '4': art.three_GUESS,
+        '3': art.four_GUESS,
+        '2': art.five_GUESS,
+        '1': art.six_GUESS,
+        '0': art.seven_GUESS
+    }
+    return art[str(guesses)]
 
 
 
