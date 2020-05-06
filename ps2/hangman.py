@@ -165,6 +165,7 @@ def hangman(secret_word):
             break
         elif guesses == 0:
             print("Sorry, no more guesses!")
+            print("The word was: {}".format(secret_word))
         else:
             continue
 
