@@ -1,7 +1,10 @@
+#!/usr/bin/env python3
+# encoding: utf-8
+
 # Problem Set 2, hangman.py
-# Name: 
+# Name: Ben Luginbuhl
 # Collaborators:
-# Time spent:
+# Time spent: 11:30 -
 
 # Hangman Game
 # -----------------------------------
@@ -72,8 +75,13 @@ def get_guessed_word(secret_word, letters_guessed):
     returns: string, comprised of letters, underscores (_), and spaces that represents
       which letters in secret_word have been guessed so far.
     '''
-    # FILL IN YOUR CODE HERE AND DELETE "pass"
-    pass
+    guessed_word = []
+    for i in secret_word:
+        if i in letters_guessed:
+            guessed_word.append(i)
+        else:
+            guessed_word.append('_')
+    return ' '.join(guessed_word)
 
 
 
